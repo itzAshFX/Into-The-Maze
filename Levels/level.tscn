@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d18nq17cvbfq5"]
+
+[ext_resource type="Texture2D" uid="uid://c6hjd3hc5vfly" path="res://icon.svg" id="1_gtnvv"]
+[ext_resource type="PackedScene" uid="uid://isjcu63shngp" path="res://player/player.tscn" id="2_wav5q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ei5eg"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei5eg"]
+albedo_texture = ExtResource("1_gtnvv")
+uv1_scale = Vector3(50, 50, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ei5eg"]
+
+[node name="Level" type="Node3D" unique_id=1943845862]
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=1877819428]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1269942955]
+transform = Transform3D(16.898514, 0, 0, 0, 1, 0, 0, 0, 16.930584, 0, 0, 0)
+shape = SubResource("BoxShape3D_ei5eg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1491818764]
+transform = Transform3D(253.47769, 0, 0, 0, 1, 0, 0, 0, 253.95874, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ei5eg")
+mesh = SubResource("BoxMesh_ei5eg")
+
+[node name="player" parent="floor" unique_id=873536025 instance=ExtResource("2_wav5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19480352, 0.5, 0.35015512)
